@@ -1,7 +1,16 @@
 function Bowling() {}
 
 Bowling.prototype.totalScore = function(scoreCard) {
-  return 0;
+  {
+    let sum = 0;
+    let splitScores = scoreCard.split('');
+    for (let i = 0; i < splitScores.length; i++) {
+      if(parseInt(splitScores[i]) >= 0) {
+        sum += parseInt(splitScores[i]);
+      }
+    }
+    return sum;
+};
 }
 
 // function Player() {

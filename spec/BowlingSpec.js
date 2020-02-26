@@ -1,9 +1,12 @@
 'use strict';
 
 describe("Bowling", function() {
-  it("sums the total frames", function() {
-    var bowling = new Bowling();
+  var bowling = new Bowling();
+  it("sums the total frames, zero score game", function() {
     expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 00')).toBe(0);
+  });
+  it("sums the total frames, one score game", function() {
+    expect(bowling.totalScore('10 00 00 00 00 00 00 00 00 00')).toBe(1);
   });
 });
 
