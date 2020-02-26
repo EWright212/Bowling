@@ -2,7 +2,6 @@ def bowling_score(frames)
   scores_to_array = frames.split("")
   scores_to_array.delete(" ")
   org_frames_in_array = frames.split("")
-  p org_frames_in_array
 #first_array - convert to integer, where spares and strikes have no bonus value yet
  integer_scores_first_array = scores_to_array.each.with_index.map do |roll, idx|
    if roll == "X"
@@ -13,7 +12,6 @@ def bowling_score(frames)
       roll = roll.to_i
    end
  end
-p integer_scores_first_array
 integer_scores_second_array = integer_scores_first_array.dup
 # now bonus scores are added in to bonus array
  bonus_array = scores_to_array.each.with_index.map do |roll, idx|
@@ -36,7 +34,6 @@ integer_scores_second_array = integer_scores_first_array.dup
    end
  end 
 #note - some last rounds are for bonuses ONLY - need to fix this 
-p integer_scores_first_array
 integer_scores_final_array = integer_scores_first_array
 last_position_org = org_frames_in_array.length
 last_position = integer_scores_final_array.length
@@ -44,13 +41,10 @@ last_position = integer_scores_final_array.length
    integer_scores_final_array.delete_at(last_position -1)
    integer_scores_final_array.delete_at(last_position -2)
  elsif org_frames_in_array[last_position_org -2] =="/"
- p integer_scores_final_array
    integer_scores_final_array.delete_at(last_position -1)
  end
  #integer_scores_array = first array + bonuses
 #p integer_scores_first_array
-p integer_scores_final_array
-p bonus_array
  sum_scores_in_final_array = integer_scores_final_array.reduce(0, :+)
  sum_bonus = bonus_array.reduce(0, :+)
  total = sum_scores_in_final_array + sum_bonus

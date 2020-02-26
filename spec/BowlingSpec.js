@@ -1,3 +1,18 @@
+'use strict';
+
+describe("Bowling", function() {
+  it("sums the total frames", function() {
+    var bowling = new Bowling();
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 00')).toBe(0);
+  });
+});
+
+// describe("Bowling", function() {
+//   it("sums the total frames", function() {
+//     expect(11 11 11 11 11 11 11 11 11 11).toBe(20);
+//   });
+// });
+
 // describe("Player", function() {
 //   var player;
 //   var song;

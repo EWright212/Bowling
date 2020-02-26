@@ -1,3 +1,9 @@
+function Bowling() {}
+
+Bowling.prototype.totalScore = function(scoreCard) {
+  return 0;
+}
+
 // function Player() {
 // }
 // Player.prototype.play = function(song) {
