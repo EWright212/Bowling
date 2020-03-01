@@ -26,7 +26,11 @@ Bowling.prototype.spareMultiplier = function(splitScores) {
   let multiplier = 0;
   for (let i = 0; i < splitScores.length; i++) {
     if (splitScores[i] === "/") {
-      multiplier += parseInt(splitScores[i+1])
+      if (splitScores[i+1] >=0) {
+        multiplier += parseInt(splitScores[i+1])
+      } else {
+        multiplier += 10
+      }
     }
   }
   return multiplier
