@@ -31,6 +31,20 @@ describe("Bowling spares advanced functionality", function() {
     expect(bowling.totalScore('0/ 10 00 00 00 00 00 00 00 00')).toBe(12);
   });
 });
+
+describe("Bowling strikes advanced functionality", function() {
+  var bowling = new Bowling();
+  it("can handle a strike with one multiplier", function() {
+    expect(bowling.totalScore('X 10 00 00 00 00 00 00 00 00')).toBe(12);
+  });
+  it("can handle a strike with two multiplies", function() {
+    expect(bowling.totalScore('X 11 00 00 00 00 00 00 00 00')).toBe(14);
+  });
+  // it("can handle a strike with another strike", function() {
+  //   expect(bowling.totalScore('X X 11 00 00 00 00 00 00 00')).toBe(12);
+  // });
+
+});
 // describe("Player", function() {
 //   var player;
 //   var song;

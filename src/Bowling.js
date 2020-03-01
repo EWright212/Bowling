@@ -28,9 +28,21 @@ Bowling.prototype.spareMultiplier = function(scoreCard) {
   return multiplier
 }
 
+Bowling.prototype.strikeMultiplier = function(scoreCard) {
+  let multiplier = 0;
+  let splitScores = scoreCard.split('');
+  for (let i = 0; i < splitScores.length; i++) {
+    if (splitScores[i] === "X") {
+      multiplier += parseInt(splitScores[i+2])
+      multiplier += parseInt(splitScores[i+3])
+    }
+  }
+  return multiplier
+}
+
 Bowling.prototype.totalScore = function(scoreCard) {
   var bowling = new Bowling();
-  return (bowling.basicScore(scoreCard) + bowling.spareMultiplier(scoreCard));
+  return (bowling.basicScore(scoreCard) + bowling.spareMultiplier(scoreCard)+ bowling.strikeMultiplier(scoreCard));
 }
 
 
