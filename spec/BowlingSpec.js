@@ -1,6 +1,6 @@
 'use strict';
 
-describe("Bowling", function() {
+describe("Bowling basic functionality", function() {
   var bowling = new Bowling();
   it("sums the total frames, zero score game", function() {
     expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 00')).toBe(0);
@@ -22,6 +22,15 @@ describe("Bowling", function() {
   });
 });
 
+describe("Bowling spares advanced functionality", function() {
+  var bowling = new Bowling();
+  it("can handle a spare with a non zero roll before it", function() {
+    expect(bowling.totalScore('1/ 00 00 00 00 00 00 00 00 00')).toBe(10);
+  });
+  // it("can handle a spare with a multiplier", function() {
+  //   expect(bowling.totalScore('0/ 10 00 00 00 00 00 00 00 00')).toBe(12);
+  // });
+});
 // describe("Player", function() {
 //   var player;
 //   var song;
