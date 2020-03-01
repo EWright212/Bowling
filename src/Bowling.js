@@ -1,21 +1,27 @@
 function Bowling() {}
 
-Bowling.prototype.totalScore = function(scoreCard) {
+Bowling.prototype.basicScore = function(scoreCard) {
   {
-    let sum = 0;
+    let basicSum = 0;
     let splitScores = scoreCard.split('');
     for (let i = 0; i < splitScores.length; i++) {
       if(parseInt(splitScores[i]) >= 0) {
-        sum += parseInt(splitScores[i]);
+        basicSum += parseInt(splitScores[i]);
       } else if (splitScores[i] === "X") {
-        sum += 10
+        basicSum += 10
       } else if (splitScores[i] === "/") {
-        sum += (10 - parseInt(splitScores[i-1]))
+        basicSum += (10 - parseInt(splitScores[i-1]))
       }
     }
-    return sum;
+    return basicSum;
 };
 }
+
+Bowling.prototype.totalScore = function(scoreCard) {
+  var bowling = new Bowling();
+  return bowling.basicScore(scoreCard);
+}
+
 
 // function Player() {
 // }
