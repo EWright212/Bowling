@@ -8,13 +8,19 @@ describe("Bowling", function() {
   it("sums the total frames, one score game", function() {
     expect(bowling.totalScore('10 00 00 00 00 00 00 00 00 00')).toBe(1);
   });
+  it("sums the total frames, two score game", function() {
+    expect(bowling.totalScore('11 00 00 00 00 00 00 00 00 00')).toBe(2);
+  });
+  it("sums the total frames, all ones score game", function() {
+    expect(bowling.totalScore('11 11 11 11 11 11 11 11 11 11')).toBe(20);
+  });
+  it("can handle one spare with no bonus", function() {
+    expect(bowling.totalScore('0/ 00 00 00 00 00 00 00 00 00')).toBe(10);
+  });
+  it("can handle one strike with no bonus", function() {
+    expect(bowling.totalScore('X 00 00 00 00 00 00 00 00 00')).toBe(10);
+  });
 });
-
-// describe("Bowling", function() {
-//   it("sums the total frames", function() {
-//     expect(11 11 11 11 11 11 11 11 11 11).toBe(20);
-//   });
-// });
 
 // describe("Player", function() {
 //   var player;

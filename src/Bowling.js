@@ -7,6 +7,8 @@ Bowling.prototype.totalScore = function(scoreCard) {
     for (let i = 0; i < splitScores.length; i++) {
       if(parseInt(splitScores[i]) >= 0) {
         sum += parseInt(splitScores[i]);
+      } else if (splitScores[i] === "/" || splitScores[i] === "X"){
+        sum += 10
       }
     }
     return sum;
