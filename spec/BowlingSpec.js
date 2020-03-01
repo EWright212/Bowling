@@ -30,6 +30,12 @@ describe("Bowling spares advanced functionality", function() {
   it("can handle a spare with a multiplier", function() {
     expect(bowling.totalScore('0/ 10 00 00 00 00 00 00 00 00')).toBe(12);
   });
+  it("can handle a spare with another spare", function() {
+    expect(bowling.totalScore('0/ 0/ 00 00 00 00 00 00 00 00')).toBe(20);
+  });
+  it("can handle a spare with another spare and multipliers", function() {
+    expect(bowling.totalScore('0/ 1/ 10 00 00 00 00 00 00 00')).toBe(23);
+  });
 });
 
 describe("Bowling strikes advanced functionality", function() {
@@ -43,7 +49,6 @@ describe("Bowling strikes advanced functionality", function() {
   // it("can handle a strike with another strike", function() {
   //   expect(bowling.totalScore('X X 11 00 00 00 00 00 00 00')).toBe(12);
   // });
-
 });
 // describe("Player", function() {
 //   var player;
