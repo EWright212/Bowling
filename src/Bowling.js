@@ -68,15 +68,11 @@ Bowling.prototype.strikeMultiplier = function(splitScores) {
 Bowling.prototype.strikeFinalFrame = function(scoreCard) {
   let arrScoreCard = scoreCard.split('');
   let reducer = 0
-  // if (arrScoreCard[arrScoreCard.length -3] == "X") {
-  //   for (let i = 1; i < 3; i++) {
-  //     if (parseInt(arrScoreCard[arrScoreCard.length -i]) >= 0) {
-  //       reducer += parseInt(arrScoreCard[arrScoreCard.length -i]);
-  //     } else if (arrScoreCard[arrScoreCard.length -i] == "X") {
-  //       reducer += 10;
-  //     }
-  //   }
-  // }
+  if (arrScoreCard[arrScoreCard.length -3] == "X") {
+      if (arrScoreCard[arrScoreCard.length -1] == "X") {
+        reducer += 10;
+      }
+  }
   return reducer
 }
 
