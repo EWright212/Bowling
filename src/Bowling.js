@@ -36,15 +36,12 @@ Bowling.prototype.strikeMultiplier = function(splitScores) {
   let multiplier = 0;
   for (let i = 0; i < splitScores.length; i++) {
     if (splitScores[i] === "X") {
-      if (parseInt(splitScores[i+1]) >= 0) {
-        multiplier += parseInt(splitScores[i+1]);
-      } else {
-        multiplier +=10;
-      }
-      if (parseInt(splitScores[i+2]) >= 0) {
-        multiplier += parseInt(splitScores[i+2]);
-      } else {
-      multiplier +=10;
+      for (let j = 1; j < 3; j++) {
+        if (parseInt(splitScores[i+j]) >= 0) {
+          multiplier += parseInt(splitScores[i+j]);
+        } else {
+          multiplier +=10;
+        }
       }
     }
   }
