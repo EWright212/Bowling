@@ -78,9 +78,12 @@ describe("Final frame no bonus scored", function() {
   // it("can handle a max score", function() {
   //   expect(bowling.totalScore('X X X X X X X X X XXX')).toBe(300);
   // });
-  // it("can handle almost max score with zero in final roll", function() {
-  //   expect(bowling.totalScore('X X X X X X X X X XX0')).toBe(290);
-  // });
+  it("can handle almost max score with zero in final roll", function() {
+    expect(bowling.totalScore('X X X X X X X X X XX0')).toBe(290);
+  });
+  it("can handle almost max score with zero in final roll", function() {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 XX0')).toBe(20);
+  });
 });
 
 describe("Final frame bonus scored", function() {
@@ -91,6 +94,9 @@ describe("Final frame bonus scored", function() {
   it("can handle strike then strike in bonus round", function () {
     expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 XX0')).toBe(20);
   });
+  // it("can handle strike then strike in bonus round", function () {
+  //   expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 XXX')).toBe(30);
+  // });
 });
 
 // describe("Player", function() {
