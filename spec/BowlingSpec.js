@@ -27,9 +27,9 @@ describe("Bowling spares advanced functionality", function() {
   it("can handle a spare with a non zero roll before it", function() {
     expect(bowling.totalScore('1/ 00 00 00 00 00 00 00 00 00')).toBe(10);
   });
-  // it("can handle a spare with a multiplier", function() {
-  //   expect(bowling.totalScore('0/ 10 00 00 00 00 00 00 00 00')).toBe(12);
-  // });
+  it("can handle a spare with a multiplier", function() {
+    expect(bowling.totalScore('0/ 10 00 00 00 00 00 00 00 00')).toBe(12);
+  });
 });
 // describe("Player", function() {
 //   var player;

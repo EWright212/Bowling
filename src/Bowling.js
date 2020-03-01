@@ -17,9 +17,20 @@ Bowling.prototype.basicScore = function(scoreCard) {
 };
 }
 
+Bowling.prototype.spareMultiplier = function(scoreCard) {
+  let multiplier = 0;
+  let splitScores = scoreCard.split('');
+  for (let i = 0; i < splitScores.length; i++) {
+    if (splitScores[i] === "/") {
+      multiplier += parseInt(splitScores[i+2])
+    }
+  }
+  return multiplier
+}
+
 Bowling.prototype.totalScore = function(scoreCard) {
   var bowling = new Bowling();
-  return bowling.basicScore(scoreCard);
+  return (bowling.basicScore(scoreCard) + bowling.spareMultiplier(scoreCard));
 }
 
 
