@@ -61,6 +61,35 @@ describe("Bowling strikes and spare combined", function() {
   });
 });
 
+describe("Final frame no bonus scored", function() {
+  var bowling = new Bowling();
+  it("works until bonus frames with max score", function () {
+    expect(bowling.totalScore('X X X X X X X X X X00')).toBe(270);
+  });
+  it("can handle one X in final frame", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 X00')).toBe(10);
+  });
+  it("can handle one X in each of final two frames", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 X X00')).toBe(30);
+  });
+  it("can handle one X in each of final three frames", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 X X X00')).toBe(60);
+  });
+  // it("can handle a max score", function() {
+  //   expect(bowling.totalScore('X X X X X X X X X XXX')).toBe(300);
+  // });
+  // it("can handle almost max score with zero in final roll", function() {
+  //   expect(bowling.totalScore('X X X X X X X X X XX0')).toBe(290);
+  // });
+});
+
+describe("Final frame bonus scored", function() {
+  var bowling = new Bowling();
+  it("can handle strike then single rolls in bonus round", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 0 X11')).toBe(12);
+  });
+});
+
 // describe("Player", function() {
 //   var player;
 //   var song;
