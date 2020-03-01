@@ -62,7 +62,7 @@ Bowling.prototype.strikeFinalFrame = function(scoreCard) {
       if (parseInt(arrScoreCard[arrScoreCard.length -i]) >= 0) {
         reducer += parseInt(arrScoreCard[arrScoreCard.length -i]);
       } else if (arrScoreCard[arrScoreCard.length -i] == "X") {
-        reducer += 10;
+        reducer += 20;
       }
     }
   }

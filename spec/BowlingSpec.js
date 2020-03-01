@@ -88,6 +88,9 @@ describe("Final frame bonus scored", function() {
   it("can handle strike then single rolls in bonus round", function () {
     expect(bowling.totalScore('00 00 00 00 00 00 00 00 0 X11')).toBe(12);
   });
+  it("can handle strike then strike in bonus round", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 XX0')).toBe(20);
+  });
 });
 
 // describe("Player", function() {
