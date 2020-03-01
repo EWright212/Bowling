@@ -10,12 +10,14 @@ Bowling.prototype.basicScore = function(splitScores) {
   {
     let basicSum = 0;
     for (let i = 0; i < splitScores.length; i++) {
-      if(parseInt(splitScores[i]) >= 0) {
-        basicSum += parseInt(splitScores[i]);
-      } else if (splitScores[i] === "X") {
+      // if(parseInt(splitScores[i]) >= 0) {
+        
+      if (splitScores[i] === "X") {
         basicSum += 10
       } else if (splitScores[i] === "/") {
         basicSum += (10 - parseInt(splitScores[i-1]))
+      } else {
+        basicSum += parseInt(splitScores[i]);
       }
     }
     return basicSum;
