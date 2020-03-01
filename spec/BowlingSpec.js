@@ -53,9 +53,9 @@ describe("Bowling strikes advanced functionality", function() {
 
 describe("Bowling strikes and spare combined", function() {
   var bowling = new Bowling();
-  // it("can handle a strike with a spare", function() {
-  //   expect(bowling.totalScore('X 1/ 00 00 00 00 00 00 00 00')).toBe(30);
-  // });
+  it("can handle a strike with a spare", function() {
+    expect(bowling.totalScore('X 1/ 00 00 00 00 00 00 00 00')).toBe(30);
+  });
 });
 
 // describe("Player", function() {

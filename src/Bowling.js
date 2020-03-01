@@ -39,6 +39,8 @@ Bowling.prototype.strikeMultiplier = function(splitScores) {
       for (let j = 1; j < 3; j++) {
         if (parseInt(splitScores[i+j]) >= 0) {
           multiplier += parseInt(splitScores[i+j]);
+        } else if (splitScores[i+j] == "/") {
+          multiplier += (10 - parseInt(splitScores[i+j-1]));
         } else {
           multiplier +=10;
         }
