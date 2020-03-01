@@ -1,9 +1,14 @@
 function Bowling() {}
 
-Bowling.prototype.basicScore = function(scoreCard) {
+Bowling.prototype.removeSpaces = function(scoreCard) {
+let noSpaces = scoreCard.replace(/\s/g,'');
+let splitScores = noSpaces.split('');
+return splitScores;
+}
+
+Bowling.prototype.basicScore = function(splitScores) {
   {
     let basicSum = 0;
-    let splitScores = scoreCard.split('');
     for (let i = 0; i < splitScores.length; i++) {
       if(parseInt(splitScores[i]) >= 0) {
         basicSum += parseInt(splitScores[i]);
@@ -17,24 +22,22 @@ Bowling.prototype.basicScore = function(scoreCard) {
 };
 }
 
-Bowling.prototype.spareMultiplier = function(scoreCard) {
+Bowling.prototype.spareMultiplier = function(splitScores) {
   let multiplier = 0;
-  let splitScores = scoreCard.split('');
   for (let i = 0; i < splitScores.length; i++) {
     if (splitScores[i] === "/") {
-      multiplier += parseInt(splitScores[i+2])
+      multiplier += parseInt(splitScores[i+1])
     }
   }
   return multiplier
 }
 
-Bowling.prototype.strikeMultiplier = function(scoreCard) {
+Bowling.prototype.strikeMultiplier = function(splitScores) {
   let multiplier = 0;
-  let splitScores = scoreCard.split('');
   for (let i = 0; i < splitScores.length; i++) {
     if (splitScores[i] === "X") {
+      multiplier += parseInt(splitScores[i+1])
       multiplier += parseInt(splitScores[i+2])
-      multiplier += parseInt(splitScores[i+3])
     }
   }
   return multiplier
@@ -42,7 +45,8 @@ Bowling.prototype.strikeMultiplier = function(scoreCard) {
 
 Bowling.prototype.totalScore = function(scoreCard) {
   var bowling = new Bowling();
-  return (bowling.basicScore(scoreCard) + bowling.spareMultiplier(scoreCard)+ bowling.strikeMultiplier(scoreCard));
+  splitScores = bowling.removeSpaces(scoreCard)
+  return (bowling.basicScore(splitScores) + bowling.spareMultiplier(splitScores)+ bowling.strikeMultiplier(splitScores));
 }
 
 
