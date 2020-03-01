@@ -9,9 +9,7 @@ return splitScores;
 Bowling.prototype.basicScore = function(splitScores) {
   {
     let basicSum = 0;
-    for (let i = 0; i < splitScores.length; i++) {
-      // if(parseInt(splitScores[i]) >= 0) {
-        
+    for (let i = 0; i < splitScores.length; i++) { 
       if (splitScores[i] === "X") {
         basicSum += 10
       } else if (splitScores[i] === "/") {
@@ -38,8 +36,16 @@ Bowling.prototype.strikeMultiplier = function(splitScores) {
   let multiplier = 0;
   for (let i = 0; i < splitScores.length; i++) {
     if (splitScores[i] === "X") {
-      multiplier += parseInt(splitScores[i+1])
-      multiplier += parseInt(splitScores[i+2])
+      if (parseInt(splitScores[i+1]) >= 0) {
+        multiplier += parseInt(splitScores[i+1]);
+      } else {
+        multiplier +=10;
+      }
+      if (parseInt(splitScores[i+2]) >= 0) {
+        multiplier += parseInt(splitScores[i+2]);
+      } else {
+      multiplier +=10;
+      }
     }
   }
   return multiplier
