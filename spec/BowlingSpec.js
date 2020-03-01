@@ -75,9 +75,9 @@ describe("Final frame no bonus scored", function() {
   it("can handle one X in each of final three frames", function () {
     expect(bowling.totalScore('00 00 00 00 00 00 00 X X X00')).toBe(60);
   });
-  // it("can handle a max score", function() {
-  //   expect(bowling.totalScore('X X X X X X X X X XXX')).toBe(300);
-  // });
+  it("can handle a max score", function() {
+    expect(bowling.totalScore('X X X X X X X X X XXX')).toBe(300);
+  });
   it("can handle almost max score with zero in final roll", function() {
     expect(bowling.totalScore('X X X X X X X X X XX0')).toBe(290);
   });
