@@ -103,5 +103,14 @@ describe("Final frame bonus scored", function() {
   it("can handle spare with a bonus in bonus round", function () {
     expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 0/1')).toBe(11);
   });
+  it("can handle a two round spare with a bonus in bonus round", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 00 3/1')).toBe(11);
+  });
+  it("can handle a spare in 9th round", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 0/ 31')).toBe(17);
+  });
+  it("can handle a strike in 9th round", function () {
+    expect(bowling.totalScore('00 00 00 00 00 00 00 00 X 31')).toBe(18);
+  });
 });
 
