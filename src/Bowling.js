@@ -76,6 +76,15 @@ Bowling.prototype.strikeFinalFrame = function(scoreCard) {
   return reducer
 }
 
+Bowling.prototype.spareFinalFrame = function(scoreCard) {
+  let arrScoreCard = scoreCard.split('');
+  let reducer = 0
+  if (arrScoreCard[arrScoreCard.length -2] == "/") {
+    reducer += arrScoreCard[arrScoreCard.length -1];
+  }
+  return reducer
+}
+
 Bowling.prototype.totalScore = function(scoreCard) {
   var bowling = new Bowling();
   splitScores = bowling.removeSpaces(scoreCard);
@@ -92,29 +101,7 @@ Bowling.prototype.totalScore = function(scoreCard) {
   console.log("strike final frame: ");
   console.log(bowling.strikeFinalFrame(scoreCard));  
   
-  return (bowling.basicScore(splitSimpleScores) + bowling.spareMultiplier(splitScores)+ bowling.strikeMultiplier(splitScores) - bowling.strikeFinalFrame(scoreCard));
+  return (bowling.basicScore(splitSimpleScores) + bowling.spareMultiplier(splitScores)+ bowling.strikeMultiplier(splitScores) - bowling.strikeFinalFrame(scoreCard) - bowling.spareFinalFrame(scoreCard));
 }
 
 
-// function Player() {
-// }
-// Player.prototype.play = function(song) {
-//   this.currentlyPlayingSong = song;
-//   this.isPlaying = true;
-// };
-
-// Player.prototype.pause = function() {
-//   this.isPlaying = false;
-// };
-
-// Player.prototype.resume = function() {
-//   if (this.isPlaying) {
-//     throw new Error("song is already playing");
-//   }
-
-//   this.isPlaying = true;
-// };
-
-// Player.prototype.makeFavorite = function() {
-//   this.currentlyPlayingSong.persistFavoriteStatus(true);
-// };
