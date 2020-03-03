@@ -89,17 +89,6 @@ Bowling.prototype.totalScore = function(scoreCard) {
   var bowling = new Bowling();
   splitScores = bowling.removeSpaces(scoreCard);
   splitSimpleScores = bowling.removeSpacesAndBonusFrame(scoreCard);
-
-  console.log("remove spaces: ");
-  console.log(bowling.removeSpaces(scoreCard));
-  console.log("basic score: ");
-  console.log(bowling.basicScore(splitSimpleScores));
-  console.log("spare multiplier: ");
-  console.log(bowling.spareMultiplier(splitScores));
-  console.log("strike multiplier: ");
-  console.log(bowling.strikeMultiplier(splitScores));
-  console.log("strike final frame: ");
-  console.log(bowling.strikeFinalFrame(scoreCard));  
   
   return (bowling.basicScore(splitSimpleScores) + bowling.spareMultiplier(splitScores)+ bowling.strikeMultiplier(splitScores) - bowling.strikeFinalFrame(scoreCard) - bowling.spareFinalFrame(scoreCard));
 }
